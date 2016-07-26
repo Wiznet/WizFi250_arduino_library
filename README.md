@@ -1,4 +1,4 @@
-# Wi-Fi Shield for Arudino using [WizFi250-EVB](http://wizwiki.net/wiki/doku.php?id=products:wizfi250:start) from [Wiznet](http://www.wiznet.co.kr/)
+# Wi-Fi Shield for Arduino using [WizFi250-EVB](http://wizwiki.net/wiki/doku.php?id=products:wizfi250:start) from [Wiznet](http://www.wiznet.co.kr/)
 
 
 ![WizFi250-EVB](https://raw.githubusercontent.com/Wiznet/WizFi250_arduino_library/master/WizFi250-EVB.png "WizFi250-EVB")
