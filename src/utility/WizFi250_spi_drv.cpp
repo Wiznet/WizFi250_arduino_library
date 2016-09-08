@@ -636,6 +636,11 @@ uint8_t WizFi250SpiDrv::getConnectionStatus ()
 {
 	char buff[CMD_BUFFER_SIZE];
 
+	if( m_is_datamode == true )
+	{
+		return WL_CONNECTED;
+	}
+
 	if( sendCmd(F("AT+WSTATUS\r")) == -1 )
 		return WL_NO_SHIELD;
 
