@@ -10,7 +10,7 @@
 #include "WizFi250.h"
 //#include "WizFi250Client.h"
 
-class WiFiClient;
+//class WiFiClient;
 
 class WiFiServer : public Print
 {

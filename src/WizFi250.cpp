@@ -6,7 +6,6 @@
 #include <string.h>
 #include <Arduino.h>
 #include "WizFi250.h"
-#include "Debug.h"
 
 #include <avr/pgmspace.h>
 
@@ -138,6 +137,13 @@ bool WizFi250Class::mode(WiFiMode_t m)
 {
 	return true;
 }
+
+bool WizFi250Class::runOTA()
+{
+	if( wizfi250Drv.sendCmd(F("AT+FOTA\r")) == -1 ) return false;
+	return true;
+}
+
 
 WizFi250Class WiFi;
 

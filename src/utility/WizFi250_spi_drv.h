@@ -101,7 +101,7 @@ public:
 
 	int 		getResponse			(char* outStr, int outStrLen, int lineNum);
 	int			sendCmd				(const __FlashStringHelper* cmd, int timeout=1000, ...);
-	int			SendCmdWithTag		(const __FlashStringHelper* cmd, char* tag="[OK]", char* tag2="", int timeout=10000 ...);
+	int			SendCmdWithTag		(const __FlashStringHelper* cmd, char* tag="[OK]", char* tag2="", int timeout=10000, ...);
 	int 		readUntil			(int timeout, const char* tag="[OK]", const char* tag2="");
 	void		wizfiEmptyBuf		(bool warn=true);
 

@@ -59,6 +59,8 @@ public:
 
 	bool mode(WiFiMode_t m);
 
+	bool runOTA();
+
 private:
 
 	friend class WizFi250SpiDrv;
