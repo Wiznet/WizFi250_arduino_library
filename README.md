@@ -26,7 +26,7 @@ These are driver code of WizFi250 and example code. And we did prepare many exam
  - WebServerLed
 
 
-You can find these examples codes at [WizFi250\examples](https://github.com/Wiznet/WizFi250_arduino_library/tree/master/WizFi250/examples).
+You can find these examples codes at [WizFi250\examples](https://github.com/Wiznet/WizFi250_arduino_library/tree/master/examples).
 
 
 
