@@ -37,7 +37,7 @@
 #define SPI_ERR		(uint8_t) 0x05
 
 // maximum size of AT command
-#define CMD_BUFFER_SIZE 200
+#define CMD_BUFFER_SIZE 180
 
 // Default state value for Wifi state field
 #define NA_STATE -1

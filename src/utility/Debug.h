@@ -34,17 +34,17 @@
 #define LOGDEBUG_LN_TYPE(x,y)   if(_WizFiLOGLEVEL_>3) { SerialUSB.println(x,y); }
 #else
 	
-#define LOGERROR(x)    if(_WizFiLOGLEVEL_>0) { Serial.print("[WizFi250] "); Serial.println(x); }
-#define LOGERROR1(x,y) if(_WizFiLOGLEVEL_>2) { Serial.print("[WizFi250] "); Serial.print(x); Serial.print(" "); Serial.println(y); }
-#define LOGWARN(x)     if(_WizFiLOGLEVEL_>1) { Serial.print("[WizFi250] "); Serial.println(x); }
-#define LOGWARN1(x,y)  if(_WizFiLOGLEVEL_>2) { Serial.print("[WizFi250] "); Serial.print(x); Serial.print(" "); Serial.println(y); }
-#define LOGINFO(x)     if(_WizFiLOGLEVEL_>2) { Serial.print("[WizFi250] "); Serial.println(x); }
-#define LOGINFO1(x,y)  if(_WizFiLOGLEVEL_>2) { Serial.print("[WizFi250] "); Serial.print(x); Serial.print(" "); Serial.println(y); }
+#define LOGERROR(x)    if(_WizFiLOGLEVEL_>0) { Serial.print(F("[WizFi250] ")); Serial.println(x); }
+#define LOGERROR1(x,y) if(_WizFiLOGLEVEL_>2) { Serial.print(F("[WizFi250] ")); Serial.print(x); Serial.print(" "); Serial.println(y); }
+#define LOGWARN(x)     if(_WizFiLOGLEVEL_>1) { Serial.print(F("[WizFi250] ")); Serial.println(x); }
+#define LOGWARN1(x,y)  if(_WizFiLOGLEVEL_>2) { Serial.print(F("[WizFi250] ")); Serial.print(x); Serial.print(" "); Serial.println(y); }
+#define LOGINFO(x)     if(_WizFiLOGLEVEL_>2) { Serial.print(F("[WizFi250] ")); Serial.println(x); }
+#define LOGINFO1(x,y)  if(_WizFiLOGLEVEL_>2) { Serial.print(F("[WizFi250] ")); Serial.print(x); Serial.print(" "); Serial.println(y); }
 
 #define LOGDEBUG(x)      if(_WizFiLOGLEVEL_>3) { Serial.println(x); }
 #define LOGDEBUG0(x)     if(_WizFiLOGLEVEL_>3) { Serial.print(x); }
-#define LOGDEBUG1(x,y)   if(_WizFiLOGLEVEL_>3) { Serial.print(x); Serial.print(" "); Serial.println(y); }
-#define LOGDEBUG2(x,y,z) if(_WizFiLOGLEVEL_>3) { Serial.print(x); Serial.print(" "); Serial.print(y); Serial.print(" "); Serial.println(z); }
+#define LOGDEBUG1(x,y)   if(_WizFiLOGLEVEL_>3) { Serial.print(x); Serial.print(F(" ")); Serial.println(y); }
+#define LOGDEBUG2(x,y,z) if(_WizFiLOGLEVEL_>3) { Serial.print(x); Serial.print(F(" ")); Serial.print(y); Serial.print(F(" ")); Serial.println(z); }
 #define LOGDEBUG_TYPE(x,y)      if(_WizFiLOGLEVEL_>3) { Serial.print(x,y); }
 #define LOGDEBUG_LN_TYPE(x,y)   if(_WizFiLOGLEVEL_>3) { Serial.println(x,y); }
 
