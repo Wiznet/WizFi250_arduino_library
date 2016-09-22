@@ -8,7 +8,7 @@
 #include <avr/pgmspace.h>
 
 
-//char WizFi250SpiDrv::fwVersion[]    = {0};
+char WizFi250SpiDrv::fwVersion[]    = {0};
 char WizFi250SpiDrv::_ssid[]		= {0};
 uint8_t WizFi250SpiDrv::_bssid[]	= {0};
 uint8_t WizFi250SpiDrv::_mac[]      = {0};
@@ -240,7 +240,7 @@ int WizFi250SpiDrv::sendCmd(const __FlashStringHelper* cmd, int timeout, ...)
 	return idx;
 }
 
-int WizFi250SpiDrv::SendCmdWithTag(const __FlashStringHelper* cmd, char* tag, char* tag2, int timeout, ...)
+int WizFi250SpiDrv::SendCmdWithTag(const __FlashStringHelper* cmd, const char* tag, const char* tag2, int timeout, ...)
 {
 	char cmdBuf[CMD_BUFFER_SIZE];
 
@@ -625,11 +625,10 @@ uint8_t WizFi250SpiDrv::getScanNetworks()
 
 char* WizFi250SpiDrv::firmwareVersion()
 {
-//	sendCmd(F("AT+MINFO\r"));
-//	getResponse(fwVersion, sizeof(fwVersion), 2);
-//
-//	return fwVersion;
-return 0;
+	sendCmd(F("AT+MINFO\r"));
+	getResponse(fwVersion, sizeof(fwVersion), 2);
+
+	return fwVersion;
 }
 
 uint8_t WizFi250SpiDrv::getConnectionStatus ()
