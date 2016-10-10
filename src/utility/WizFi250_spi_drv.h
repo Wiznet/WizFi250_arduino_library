@@ -37,7 +37,7 @@
 #define SPI_ERR		(uint8_t) 0x05
 
 // maximum size of AT command
-#define CMD_BUFFER_SIZE 180
+#define CMD_BUFFER_SIZE 170
 
 // Default state value for Wifi state field
 #define NA_STATE -1
@@ -101,7 +101,7 @@ public:
 
 	int 		getResponse			(char* outStr, int outStrLen, int lineNum);
 	int			sendCmd				(const __FlashStringHelper* cmd, int timeout=1000, ...);
-	int			SendCmdWithTag		(const __FlashStringHelper* cmd, char* tag="[OK]", char* tag2="", int timeout=10000, ...);
+	int			SendCmdWithTag		(const __FlashStringHelper* cmd, const char* tag="[OK]", const char* tag2="", int timeout=10000, ...);
 	int 		readUntil			(int timeout, const char* tag="[OK]", const char* tag2="");
 	void		wizfiEmptyBuf		(bool warn=true);
 
@@ -150,7 +150,7 @@ private:
 	static WizFiRingBuffer ringBuf;
 
 	// firmware version string
-//	static char 	fwVersion[WL_FW_VER_LENGTH];
+	static char 	fwVersion[WL_FW_VER_LENGTH];
 	static char		_ssid[WL_SSID_MAX_LENGTH];
 	static uint8_t  _bssid[WL_MAC_ADDR_LENGTH];
 	static uint8_t	_mac[WL_MAC_ADDR_LENGTH];
