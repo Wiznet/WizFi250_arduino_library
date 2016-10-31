@@ -15,8 +15,8 @@
 class WiFiClient : public Client
 {
 public:
-	WiFiClient();
-	WiFiClient(uint8_t sock);
+    WiFiClient();
+    WiFiClient(uint8_t sock);
 
   /*
   * Connect to the specified IP address and port. The return value indicates success or failure.

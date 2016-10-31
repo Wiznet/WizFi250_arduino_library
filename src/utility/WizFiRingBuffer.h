@@ -12,32 +12,32 @@ class WizFiRingBuffer
 {
 private:
 
-	int bufferSize;
-	unsigned int bufferHead, bufferTail;
-	byte *buffer_p;
+    int bufferSize;
+    unsigned int bufferHead, bufferTail;
+    byte *buffer_p;
 
 public:
-	WizFiRingBuffer(int size);
+    WizFiRingBuffer(int size);
         ~WizFiRingBuffer();
     int reset();
-	int available(void);
-	bool isFull();
-	int getBufferSize();
-	int peek(void);
-	int peek(int);
-	void remove(int);
-	int read(void);
-	byte write(int);
+    int available(void);
+    bool isFull();
+    int getBufferSize();
+    int peek(void);
+    int peek(int);
+    void remove(int);
+    int read(void);
+    byte write(int);
 
-	void	init();
-	void	push(char c);
+    void    init();
+    void    push(char c);
 
-	bool	endsWith	(const char* str);
-	char*	FindStr		(const char* str);
-	int		getString	(char* dest, int size);
-	int		getLine		(char* dest, int size, char sep, int skipchar);
+    bool    endsWith    (const char* str);
+    char*   FindStr     (const char* str);
+    int     getString   (char* dest, int size);
+    int     getLine     (char* dest, int size, char sep, int skipchar);
 
-	void	printbuffer	();
+    void    printbuffer ();
 };
 
 #endif /* WIZFI250_LIGHT_UTILITY_RINGBUFFER_H_ */

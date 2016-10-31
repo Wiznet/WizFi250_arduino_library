@@ -6,26 +6,26 @@
 
 WizFiRingBuffer::WizFiRingBuffer( int size )
 {
-	bufferSize = size+1;
-	bufferTail = 0;
-	bufferHead = 0;
-	buffer_p = ( byte* )malloc( bufferSize );
+    bufferSize = size+1;
+    bufferTail = 0;
+    bufferHead = 0;
+    buffer_p = ( byte* )malloc( bufferSize );
         memset( buffer_p, 0, bufferSize );
 }
 
 WizFiRingBuffer::~WizFiRingBuffer()
 {
-	if( buffer_p )
+    if( buffer_p )
           free( buffer_p );
 }
 
 // public functions
 int WizFiRingBuffer::reset()
 {
-	bufferHead = 0;
-	bufferTail = 0;
+    bufferHead = 0;
+    bufferTail = 0;
 
-	memset(buffer_p, 0, bufferSize);
+    memset(buffer_p, 0, bufferSize);
 }
 
 int WizFiRingBuffer::available(void)
@@ -36,14 +36,14 @@ int WizFiRingBuffer::available(void)
 
 bool WizFiRingBuffer::isFull()
 {
-	if( available() >= bufferSize)	return true;
+    if( available() >= bufferSize)  return true;
 
-	return false;
+    return false;
 }
 
 int WizFiRingBuffer::getBufferSize()
 {
-	return bufferSize;
+    return bufferSize;
 }
 
 int WizFiRingBuffer::read(void)
@@ -101,91 +101,91 @@ int WizFiRingBuffer::peek(int n) {
 
 void WizFiRingBuffer::init()
 {
-	reset();
+    reset();
 }
 
 void WizFiRingBuffer::push(char c)
 {
-	write(c);
+    write(c);
 }
 
 bool WizFiRingBuffer::endsWith(const char* str)
 {
-	int buffer_len;
+    int buffer_len;
 
-	int findStrLen = strlen(str);
+    int findStrLen = strlen(str);
 
-	char *p1 = (char*)&str[0];
-	char *p2 = p1 + findStrLen;
+    char *p1 = (char*)&str[0];
+    char *p2 = p1 + findStrLen;
 
-	unsigned int tail = bufferHead - findStrLen;
+    unsigned int tail = bufferHead - findStrLen;
 
-	for(char *p=p1; p<p2; p++)
-	{
-		if(*p != buffer_p[tail])
-		{
-			return false;
-		}
+    for(char *p=p1; p<p2; p++)
+    {
+        if(*p != buffer_p[tail])
+        {
+            return false;
+        }
 
-		tail++;
+        tail++;
 
-		if( tail == bufferSize)		tail = 0;
-	}
+        if( tail == bufferSize)     tail = 0;
+    }
 
-	return true;
+    return true;
 }
 
 char* WizFiRingBuffer::FindStr(const char* str)
 {
-	char *p_find_start = (char*)&str[0];
-	char *p_src_start  = (char*)&buffer_p[bufferTail];
+    char *p_find_start = (char*)&str[0];
+    char *p_src_start  = (char*)&buffer_p[bufferTail];
 
-	return strstr((char*)p_src_start,(char*)p_find_start);
+    return strstr((char*)p_src_start,(char*)p_find_start);
 }
 
 
 int WizFiRingBuffer::getString(char* dest, int size)
 {
-	char *p = (char*)&buffer_p[bufferTail];
-	strncpy((char*)dest,(char*)p,size);
-	return 0;
+    char *p = (char*)&buffer_p[bufferTail];
+    strncpy((char*)dest,(char*)p,size);
+    return 0;
 }
 
 
 int WizFiRingBuffer::getLine(char* dest, int size, char sep, int skipchar)
 {
-	int i,len=0,byteCnt=0;
-	char ch;
+    int i,len=0,byteCnt=0;
+    char ch;
 
 
-	byteCnt = available();
+    byteCnt = available();
 
-	for(i=0; i<byteCnt; i++)
-	{
-		ch = (char)read();
-		if(ch == sep)		break;
+    for(i=0; i<byteCnt; i++)
+    {
+        ch = (char)read();
+        if(ch == sep)       break;
 
-		if(i > size)
-		{
-			continue;
-		}
+        if(i > size)
+        {
+            continue;
+        }
 
-		dest[i] = ch;
-	}
-	len = i;
+        dest[i] = ch;
+    }
+    len = i;
 
 
-	for(i=0;i<skipchar;i++)	read();
+    for(i=0;i<skipchar;i++) read();
 
-	return len;
+    return len;
 }
 
 void WizFiRingBuffer::printbuffer()
 {
-	char *p = (char*)&buffer_p[bufferTail];
+    char *p = (char*)&buffer_p[bufferTail];
 #if defined(ARDUINO_ARCH_SAMD) 
-	SerialUSB.println(p);
+    SerialUSB.println(p);
 #else
-	Serial.println(p);
+    Serial.println(p);
 #endif
 }

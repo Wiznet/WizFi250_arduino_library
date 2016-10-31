@@ -33,7 +33,7 @@
 #define LOGDEBUG_TYPE(x,y)      if(_WizFiLOGLEVEL_>3) { SerialUSB.print(x,y); }
 #define LOGDEBUG_LN_TYPE(x,y)   if(_WizFiLOGLEVEL_>3) { SerialUSB.println(x,y); }
 #else
-	
+    
 #define LOGERROR(x)    if(_WizFiLOGLEVEL_>0) { Serial.print(F("[WizFi250] ")); Serial.println(x); }
 #define LOGERROR1(x,y) if(_WizFiLOGLEVEL_>2) { Serial.print(F("[WizFi250] ")); Serial.print(x); Serial.print(" "); Serial.println(y); }
 #define LOGWARN(x)     if(_WizFiLOGLEVEL_>1) { Serial.print(F("[WizFi250] ")); Serial.println(x); }

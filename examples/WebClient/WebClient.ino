@@ -59,8 +59,8 @@ void loop()
   // if there are incoming bytes available
   // from the server, read them and print them
   while (client.available()) {
-	  char c = client.read();
-	  Serial.write(c);
+      char c = client.read();
+      Serial.write(c);
   }
 
   // if the server's disconnected, stop the client
